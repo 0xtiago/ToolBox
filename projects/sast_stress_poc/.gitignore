@@ -1,0 +1,7 @@
+config.yml
+results.json
+*.jar
+log/*
+bin/*.xml
+bin/veracode/veracode
+verascan/*

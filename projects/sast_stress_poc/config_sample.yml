@@ -1,0 +1,15 @@
+checkmarx:
+  bin: "/opt/homebrew/bin/cx"
+  tenant: ""
+  apikey: ""
+  base_uri: "https://us.ast.checkmarx.net/"
+  base_auth_uri: "https://us.iam.checkmarx.net/"
+  application_name: ""
+  agent: "stress-cli"
+veracode:
+  bin: "bin/veracode"
+  api_key_id: ""
+  api_key_secret: ""
+  package_folder: "verascan"
+  package_log: "log/veracode_package.log"
+  wrapper_log: "log/veracode_wrapper.log"
