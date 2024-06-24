@@ -1,4 +1,5 @@
 config.yml
+proxychains/proxychains.conf
 results.json
 *.jar
 log/*

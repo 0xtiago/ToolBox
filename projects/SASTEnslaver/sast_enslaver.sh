@@ -72,14 +72,20 @@ multipleScanVeracode () {
     
     veracode_package_file=$(cat tee $veracode_package_log | grep "Created zip file:" | cut -d " " -f4)
 
-    #Preparing Wrapper
-    wget --backups=1 https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/maven-metadata.xml -P $veracode_bin
-    veracodeWrapperVersion=$(xmlstarlet select --template \
+    
+
+    if [ ! -f $veracode_bin/veracode-wrapper.jar ]; then
+        #Preparing Wrapper
+        wget --backups=1 https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/maven-metadata.xml -P $veracode_bin
+            veracodeWrapperVersion=$(xmlstarlet select --template \
                         --value-of /metadata/versioning/latest \
                         --nl $veracode_bin/maven-metadata.xml)
     
-    wget --backups=1 https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/$veracodeWrapperVersion/vosp-api-wrappers-java-$veracodeWrapperVersion.jar \
+        wget --backups=1 https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/$veracodeWrapperVersion/vosp-api-wrappers-java-$veracodeWrapperVersion.jar \
          -O $veracode_bin/veracode-wrapper.jar
+    fi
+
+    
 
 
     i=1
