@@ -6,6 +6,7 @@ checkmarx:
   base_auth_uri: "https://us.iam.checkmarx.net/"
   application_name: ""
   agent: "stress-cli"
+  tags: "neon,jira,stress_test,checkmarx"
 veracode:
   bin: "bin/veracode"
   api_key_id: ""
@@ -13,3 +14,7 @@ veracode:
   package_folder: "verascan"
   package_log: "log/veracode_package.log"
   wrapper_log: "log/veracode_wrapper.log"
+  tags: "neon,jira,stress_test,veracode"
+  custom1: "SAST"
+  customfieldname: "Custom 1"
+  customfieldvalue: "SAST"

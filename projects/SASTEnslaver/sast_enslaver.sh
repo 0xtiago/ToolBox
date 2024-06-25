@@ -47,7 +47,7 @@ multipleScanCX () {
         echo -e "Checkmarx Scan #$i"
         $checkmarx_bin --tenant $checkmarx_tenant --agent $checkmarx_agent --apikey  $checkmarx_apikey --base-uri $checkmarx_base_uri --base-auth-uri $checkmarx_base_auth_uri \
                 scan create --project-name $project_name-$i -s $source -b main \
-                --tags $project_name,neon,ecommerce --agent $checkmarx_agent --async >> log/checkmarx.log 2>&1 &
+                --tags $checkmarx_tags --agent $checkmarx_agent --async >> log/checkmarx.log 2>&1 &
         i=$((i+1))
     done
 }
@@ -93,11 +93,25 @@ multipleScanVeracode () {
         versao=$(date +%Y%m%d%H%M%S%N)
         echo -e "Veracode Scan #$i"
         java -jar $veracode_bin/veracode-wrapper.jar -vid $veracode_api_key_id -vkey $veracode_api_key_secret \
-            -action uploadandscan -appname $project_name-$i -createprofile true -filepath "$veracode_package_file" \
-            -version $versao  true -deleteincompletescan 2  -logfilepath $veracode_wrapper_log &
+             -tags $veracode_tags -custom1 $veracode_custom1 -customfieldname $veracode_customfieldname -customfieldvalue $veracode_customfieldvalue \
+            -action uploadandscan -appname $project_name-$i -createprofile true -filepath "$veracode_package_file"  \
+            -debug -version $versao  true -deleteincompletescan 2  -logfilepath $veracode_wrapper_log &
 
         i=$((i+1))
     done
+
+
+    #COM PROXY PARA TESTES
+    # i=1
+    # while [ $i -le $number_of_scans ]; do
+    #     versao=$(date +%Y%m%d%H%M%S%N)
+    #     echo -e "Veracode Scan #$i"
+    #     java -jar $veracode_bin/veracode-wrapper.jar -vid $veracode_api_key_id -vkey $veracode_api_key_secret \
+    #         -action uploadandscan -appname $project_name-$i -createprofile true -filepath "$veracode_package_file" -tags $veracode_tags -customfieldname $veracode_customfieldname -customfieldvalue $veracode_customfieldvalue -phost "localhost" -pport 8080 \
+    #         -debug -version $versao  true -deleteincompletescan 2  -logfilepath $veracode_wrapper_log &
+
+    #     i=$((i+1))
+    # done
 
 }
 

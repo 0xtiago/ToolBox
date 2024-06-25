@@ -35,3 +35,19 @@ https://github.com/Checkmarx/homebrew-ast-cli
 ./sast_stress.sh -t checkmarx -p ProjectName -s ../VulnNode -n 100
 ```
 ![Checkmarx Running](assets/images/checkmarx_running.png)
+
+
+
+# Environment
+
+## Bash environment
+- GNU bash, version 3.2.57(1)-release (arm64-apple-darwin23)
+- zsh 5.9 (x86_64-apple-darwin23.0)
+
+## Checkmarx
+- CXOne CLI - 2.1.5
+
+## Veracode
+
+- Wrapper - VeracodeJavaAPI v24.4.13.0 c22.0.1
+- Veracode CLI - Veracode CLI v2.25.0 -- 37d59bf
