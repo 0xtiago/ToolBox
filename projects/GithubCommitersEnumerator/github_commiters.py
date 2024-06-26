@@ -2,6 +2,7 @@ import requests
 import csv
 import yaml
 from datetime import datetime, timedelta
+from urllib.parse import urlparse
 
 # Reading YAML file.
 def read_config(file_path):
@@ -27,8 +28,17 @@ headers = {
 # Function to reading list of repositories
 def read_repos_from_file(file_path):
     with open(file_path, 'r') as file:
-        repos = [line.strip() for line in file if line.strip()]
+        repos = [convert_repo_url(line.strip()) for line in file if line.strip()]
     return repos
+
+# Function to revert full URLs to the format "owner/repository"
+def convert_repo_url(repo):
+    if repo.startswith("https://"):
+        parsed_url = urlparse(repo)
+        path_parts = parsed_url.path.strip('/').split('/')
+        if len(path_parts) >= 2:
+            return f'{path_parts[0]}/{path_parts[1]}'
+    return repo
 
 # Function to read the active commiters in the last days declared in the YAML file
 def get_active_collaborators(repo):
