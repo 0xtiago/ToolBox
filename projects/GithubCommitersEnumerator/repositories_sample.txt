@@ -1,2 +1,2 @@
-microsoft/dotnet
-google/device-infra
+https://github.com/microsoft/dotnet/
+https://github.com/google/device-infra/
