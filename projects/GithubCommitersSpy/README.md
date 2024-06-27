@@ -1,3 +1,15 @@
+
+- [Github Commiters Spy](#github-commiters-spy)
+  - [Special Thanks](#special-thanks)
+  - [Downloading](#downloading)
+  - [Features](#features)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+  - [Support](#support)
+
+
 # Github Commiters Spy
 
 This script enumerates active committers in specified GitHub repositories over a given number of days. It fetches the data using the GitHub API and outputs the results to CSV files.
