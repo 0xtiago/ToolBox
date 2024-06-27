@@ -9,7 +9,7 @@ import emoji
 
 
 def display_ascii_art():
-    title = "GH Commiter Spy - by 0xtiago"
+    title = "GH Commiters Spy - by 0xtiago"
     
     ascii_art = r"""
     
