@@ -12,6 +12,8 @@ The objective behind this project was to facilitate the survey of the real numbe
   - [Installation](#installation)
   - [Configuration](#configuration)
   - [Usage](#usage)
+  - [Notes](#notes)
+  - [References](#references)
   - [Support](#support)
 
 ## Special Thanks
@@ -32,7 +34,6 @@ https://download-directory.github.io?url=https://github.com/0xtiago/ToolBox/tree
 - Fetch active committers from specified GitHub repositories.
 - Retrieve commit data from the main branch within a specified number of days.
 - Output results to CSV files, including detailed commit counts per user.
-- Display an ASCII art banner at the start of execution.
 
 ## Requirements
 
@@ -70,6 +71,19 @@ python gh_commiters_spy.py -d 90
 Receiving the number of collaborators in default branch in the last 90 days.
 
 ![alt text](assets/images/demonstration.gif)
+
+## Notes
+- Ensure you have a valid GitHub personal access token with appropriate permissions to access the repositories.
+- The script checks commits on the default branch of each repository.
+- If a repository URL is provided, it will be converted to the format owner/repo.
+
+
+## References
+- [GitHub REST API v3](https://docs.github.com/en/rest)
+- [Requests: HTTP for Humans](https://requests.readthedocs.io/en/latest/)
+- [PyYAML Documentation](https://pyyaml.org/wiki/PyYAMLDocumentation)
+- [Checkmarx One Cloud Licence Types and Restrictions](https://checkmarx.com/legal/cxone-cloud-license-types-and-restrictions/v2022-07/) 
+- [Veracode - Understanding the license consumption reports ](https://docs.veracode.com/r/c_license_consumption)
 
 ## Support
 
