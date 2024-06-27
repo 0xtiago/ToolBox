@@ -60,11 +60,18 @@ def read_repos_from_file(file_path):
 
 # Function to convert full repository URLs to "owner/repo" format
 def convert_repo_url(repo):
+    repo = remove_git_extension(repo)
     if repo.startswith("https://"):
         parsed_url = urlparse(repo)
         path_parts = parsed_url.path.strip('/').split('/')
         if len(path_parts) >= 2:
             return f'{path_parts[0]}/{path_parts[1]}'
+    return repo
+
+# Remove .git extension from URLs, if they exist
+def remove_git_extension(repo):
+    if repo.endswith('.git'):
+        return repo[:-4]
     return repo
 
 # Function to get the default branch name of a repository
