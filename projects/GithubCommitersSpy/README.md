@@ -1,3 +1,8 @@
+# Github Commiters Spy
+
+This script enumerates active committers in specified GitHub repositories over a given number of days. It fetches the data using the GitHub API and outputs the results to CSV files.
+
+The objective behind this project was to facilitate the survey of the real number of users who collaborate in the Github repositories of important company projects, and thus be able to price SAST and SCA licenses with greater accuracy.
 
 - [Github Commiters Spy](#github-commiters-spy)
   - [Special Thanks](#special-thanks)
@@ -8,13 +13,6 @@
   - [Configuration](#configuration)
   - [Usage](#usage)
   - [Support](#support)
-
-
-# Github Commiters Spy
-
-This script enumerates active committers in specified GitHub repositories over a given number of days. It fetches the data using the GitHub API and outputs the results to CSV files.
-
-The objective behind this project was to facilitate the survey of the real number of users who collaborate in the Github repositories of important company projects, and thus be able to price SAST and SCA licenses with greater accuracy.
 
 ## Special Thanks
 - Michelle Mesquita | https://github.com/michelleamesquita
