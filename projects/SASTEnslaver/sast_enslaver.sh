@@ -45,9 +45,9 @@ multipleScanCX () {
     i=1
     while [ $i -le $number_of_scans ]; do
         echo -e "Checkmarx Scan #$i"
-        $checkmarx_bin --tenant $checkmarx_tenant --agent $checkmarx_agent --apikey  $checkmarx_apikey --base-uri $checkmarx_base_uri --base-auth-uri $checkmarx_base_auth_uri \
+        $checkmarx_bin --tenant $checkmarx_tenant --agent $checkmarx_agent --apikey  $checkmarx_apikey --base-uri $checkmarx_base_uri --base-auth-uri $checkmarx_base_auth_uri --profile default \
                 scan create --project-name $project_name-$i -s $source -b main \
-                --tags $checkmarx_tags --agent $checkmarx_agent --async >> log/checkmarx.log 2>&1 &
+                 --tags $checkmarx_tags --agent $checkmarx_agent --async >> log/checkmarx.log 2>&1 &
         i=$((i+1))
     done
 }
