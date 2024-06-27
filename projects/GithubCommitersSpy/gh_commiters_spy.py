@@ -140,6 +140,7 @@ def main():
 
     # Read repository list from file
     repos = read_repos_from_file(repos_file)
+    total_repos = len(repos)
 
     # List to store results
     results = []
@@ -148,7 +149,7 @@ def main():
     all_committers = {}
 
     # Loop through the repositories and get the number of active contributors
-    for repo in repos:
+    for i, repo in enumerate(repos, start=1):
         committers, status = get_active_collaborators(repo, days)
         num_active_collaborators = len(committers)
         results.append({
@@ -158,7 +159,7 @@ def main():
         })
 
         # Display the number of active committers in the console
-        print(f'Repository: {repo}, Active Commiters: {num_active_collaborators}, Status: {status}')
+        print(f'{i}/{total_repos} Repository: {repo}, Active Commiters: {num_active_collaborators}, Status: {status}')
 
         # Update committer dictionary
         for user, commits in committers.items():
